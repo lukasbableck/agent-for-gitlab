@@ -86,7 +86,7 @@ export function pullWithToken(context) {
 
 function setRemote(context) {
   // Set default remote and branch for push
-  const remoteUrl = `https://${context.host}/${context.projectPath}.git`;
+  const remoteUrl = `https://${context.username}@${context.host}/${context.projectPath}.git`;
   try {
     execFileSync("git", ["remote", "remove", "origin"], { encoding: "utf8" });
   } catch { }
