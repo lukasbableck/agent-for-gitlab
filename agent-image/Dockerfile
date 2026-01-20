@@ -7,7 +7,7 @@ LABEL org.opencontainers.image.source="https://github.com/Schickli/ai-code-for-g
 	  org.opencontainers.image.licenses="MIT"
 
 # Install required CLI tools (git for committing/pushing, jq/curl for diagnostics)
-RUN apt-get update && apt-get install -y git curl jq unzip && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y git curl jq unzip glab && rm -rf /var/lib/apt/lists/*
 
 # Install opencode CLI for server support and multi-provider model support
 RUN npm install -g opencode-ai
