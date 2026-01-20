@@ -18,6 +18,9 @@ export function gitSetup(context) {
     execFileSync("git", ["config", "--global", "user.email", context.email], {
       encoding: "utf8",
     });
+    execFileSync("glab", ["auth", "login", "--hostname", context.host, "--token", context.gitlabToken], {
+      encoding: "utf8",
+    });
   }
 
   // Prepare credential approval input
