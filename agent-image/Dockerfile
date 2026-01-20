@@ -6,6 +6,8 @@ LABEL org.opencontainers.image.source="https://github.com/Schickli/ai-code-for-g
 	  org.opencontainers.image.description="Reusable base image for AI GitLab pipeline runner" \
 	  org.opencontainers.image.licenses="MIT"
 
+RUN echo 'deb http://deb.debian.org/debian bookworm-backports main' > /etc/apt/sources.list.d/backports.list
+
 # Install required CLI tools (git for committing/pushing, jq/curl for diagnostics)
 RUN apt-get update && apt-get install -y git curl jq unzip glab && rm -rf /var/lib/apt/lists/*
 
@@ -23,4 +25,3 @@ RUN printf "#!/usr/bin/env sh\nnode /opt/agent/ai-runner.js \"$@\"\n" > /usr/loc
 
 # Default shell; CI jobs will invoke `ai-runner`
 CMD ["sh"]
-
