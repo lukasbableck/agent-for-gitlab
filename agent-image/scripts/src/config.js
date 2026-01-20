@@ -13,6 +13,7 @@ export function validateProviderKeys() {
     "AWS_ACCESS_KEY_ID",
     "AWS_PROFILE",
     "AWS_BEARER_TOKEN_BEDROCK",
+    "GITHUB_TOKEN"
   ];
   
   return providerEnvVars.some((k) => !!process.env[k]);
