@@ -63,7 +63,7 @@ export function ensureBranch(context) {
 }
 
 export function pullWithToken(context) {
-  const remoteUrl = `https://${context.host}/${context.projectPath}.git`;
+  const remoteUrl = `https://${context.username}@${context.host}/${context.projectPath}.git`;
   logger.start(`Pulling latest changes from ${context.host}/${context.projectPath}...`);
   try {
     // Use rebase strategy to handle divergent branches
